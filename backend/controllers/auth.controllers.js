@@ -7,9 +7,9 @@ export const signup = async (req, res) => {
   try {
     const { fullname, username, email, password } = req.body;
     const defaultCP =
-      "https://res.cloudinary.com/dzdszuszh/image/upload/v1727177470/flowers-1835619_1280_v0tkvi.jpg";
+      "https://res.cloudinary.com/dzdszuszh/image/upload/v1727178308/peokm2lmsx5wp6wamkz3.jpg";
     const defaultDP =
-      "https://res.cloudinary.com/dzdszuszh/image/upload/v1727177253/transparent-cartoon-cat-1711074058354_inkxok.webp";
+      "https://res.cloudinary.com/dzdszuszh/image/upload/v1727203652/k9jvijfug1w7re3ux9gl.jpg";
 
     if (fullname === "")
       return res.status(400).json({ error: "Provide Full Name" });

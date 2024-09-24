@@ -115,7 +115,7 @@ function CommentsModal({ handleCloseModal, post }) {
           </div>
           <div
             onClick={handlePostComment}
-            className=" w-16 h-8 bg-sky-400 rounded-full flex items-center justify-center font-semibold mr-5  "
+            className=" w-16 h-8 bg-sky-400 rounded-full flex items-center justify-center font-semibold mr-5 cursor-pointer hover:bg-blue-600 "
           >
             Post
           </div>

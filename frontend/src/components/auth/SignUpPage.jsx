@@ -61,7 +61,9 @@ function SignUpPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   if (isPending) {
-    return <LoadingSpinner />;
+    return <div className="h-screen w-screen flex justify-center items-center">
+      <LoadingSpinner />;
+    </div>
   }
   return (
     <div className="flex w-screen h-screen">

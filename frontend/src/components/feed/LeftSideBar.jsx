@@ -42,7 +42,7 @@ function LeftSideBar() {
   return (
     <div className="w-[15%] max-h-screen sticky top-0 border-r-[1px] border-gray-700">
       <div className=" flex justify-end ">
-        <div className="grid justify-items-center">
+        <div className="grid justify-items-center ">
           <BsTwitterX
             onClick={() => naviagte("/feed")}
             className="w-[28px] h-[28px] m-4 cursor-pointer hover:text-sky-400 hover:scale-110"
@@ -73,7 +73,7 @@ function LeftSideBar() {
           >
             <img
               src={authUser.profileImg}
-              className="w-10 h-10 m-4 bg-white  rounded-full"
+              className="w-10 h-10 m-4 mt-11 bg-white  rounded-full"
             />
             {logicon && (
               <RiLogoutCircleFill className="text-sky-400 w-8 h-8 -translate-y-[50px]  shadow-inner shadow-black rounded-full  translate-x-5 cursor-pointer " />
