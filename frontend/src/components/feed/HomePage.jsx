@@ -70,7 +70,7 @@ function HomePage() {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col xs:border-r-[1px] xs:border-gray-700 sm:border-none">
       <div className="flex justify-around sticky top-0  z-10 bg-black/40 backdrop-blur-lg border-b-[1px] border-gray-700 h-12 ">
         <div
           onClick={() => handleGoToTab("feed")}

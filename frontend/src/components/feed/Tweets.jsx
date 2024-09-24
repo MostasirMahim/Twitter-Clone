@@ -112,16 +112,18 @@ function Tweets({ post }) {
         <div className="flex-col border-b-[1px] border-gray-700 pb-2 w-full ml-2">
           <div className="flex justify-between items-center">
             <span
-              className=" flex justify-start space-x-2 mt-2 "
+              className=" xs:flex xs:flex-col sm:flex sm:justify-start space-x-2 mt-2 "
               onClick={() => navigate(`/profile/${postOwner.username}`)}
             >
               <h1 className="cursor-pointer hover:text-sky-400">
                 {postOwner.fullname}
               </h1>
-              <h1 className="cursor-pointer hover:text-sky-400 italic">
+             <div className="flex justify-start space-x-4">
+             <h1 className="cursor-pointer xs:text-sky-400 hover:text-sky-400 italic">
                 @{postOwner.username}
               </h1>
               <h1>{createdPost}</h1>
+             </div>
             </span>
             {isMyPost && (
               <MdDelete

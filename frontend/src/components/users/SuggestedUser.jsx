@@ -67,7 +67,7 @@ function SuggestedUser() {
   }
   console.log(suggestedUsers);
   return (
-    <div>
+    <div className="xs:border-1-[1px] xs:border-gray-700 sm:border-none"> 
       <div className="flex justify-around sticky top-0  z-10 bg-black/40 backdrop-blur-lg border-b-[1px] border-gray-700 h-14 ">
         <div
           onClick={() => handleGoToTab("discover")}

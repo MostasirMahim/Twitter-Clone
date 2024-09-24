@@ -37,7 +37,7 @@ function App() {
   return (
     <div className="flex">
       {authUser && <LeftSideBar />}
-      <div className="w-[50%] xs:w-[85%] sm:w-[85%] md:w-[60%] lg:w-[50%]">
+      <div className="w-[50%] xs:w-[85%]  sm:w-[85%] md:w-[60%] lg:w-[50%]">
         <ScrollToTop />
         <Routes>
           <Route

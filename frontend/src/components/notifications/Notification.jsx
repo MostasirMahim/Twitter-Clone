@@ -60,7 +60,7 @@ function Notification() {
   if (!Notifications) return null;
   return (
     <div>
-      <div className="flex justify-center text-center">
+      <div className="flex justify-center text-center xs:border-r-[1px] xs:border-gray-700 sm:border-none">
         <div className="w-full ">
           <div className="flex justify-between mx-4 my-2 items-center text-xl font-bold">
             <p>Notifications</p>

@@ -72,7 +72,7 @@ function ProfilePage() {
   }
 
   return (
-    <div>
+    <div className="xs:border-r-[1px] xs:border-gray-700 sm:border-none">
       <div className="sticky top-0 h-10 z-10 bg-black/50 backdrop-blur-lg ">
         <div className="flex m-2 space-x-4 items-center pt-1">
           <div>
