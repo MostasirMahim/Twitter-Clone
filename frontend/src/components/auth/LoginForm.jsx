@@ -43,6 +43,13 @@ const LoginForm = ({ handleCloseModal }) => {
     //need concept clear
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const handleGuest = () => {
+    setFormData({
+      email: "guest@gmail.com",
+      password: "123456",
+    });
+    loginUser(formData);
+  };
 
   return (
     <div className="relative">
@@ -50,7 +57,7 @@ const LoginForm = ({ handleCloseModal }) => {
         className="absolute top-0 right-0 w-6 h-6 mr-2 mt-2 hover:cursor-pointer hover:text-sky-500"
         onClick={handleCloseModal}
       />
-      <div className="m-12">
+      <div className="m-12 flex flex-col items-center">
         <div className="flex border border-gray-800 w-[300px] h-[40px]  pl-2 items-center focus-within:border-sky-500 ">
           <HiOutlineMail className="w-6 h-6 " />
           <input
@@ -80,10 +87,16 @@ const LoginForm = ({ handleCloseModal }) => {
           onClick={(e) => {
             onSubmitLogin(e);
           }}
-          className="flex justify-center mt-6 border border-gray-800 rounded-full text-white h-10 font-semibold  w-[280px] items-center space-x-3 text-lg bg-sky-500 hover:bg-sky-600"
+          className="flex justify-center mt-6 border border-gray-800 rounded-full text-white h-10 font-semibold  w-[280px] items-center space-x-3 text-lg bg-sky-500 hover:bg-blue-600"
         >
-          Log In{" "}
+          Log In
         </button>
+        <p
+          onClick={handleGuest}
+          className="mt-3 font-mono text-sm hover:text-green-600 hover:underline hover:cursor-pointer hover:scale-105"
+        >
+          login as a Guest
+        </p>
         {errorMessage && <p className="text-red-600 mt-2">{errorMessage}</p>}
       </div>
     </div>

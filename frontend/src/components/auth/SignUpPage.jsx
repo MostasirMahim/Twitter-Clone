@@ -70,7 +70,7 @@ function SignUpPage() {
       <div className="xs:hidden  sm:w-[50%] h-screen flex  justify-center items-center">
         <BsTwitterX className=" w-[300px] h-[300px] " />
       </div>
-      <div className="xs:w-[100%] xs:flex xs:flex-col xs:items-center sm:w-[50%] h-full">
+      <div className="xs:w-[100%] flex flex-col xs:items-center sm:items-start sm:w-[50%] h-full">
         <h1 className="text-4xl mt-16 font-sans font-bold">Join Today.</h1>
         <div>
           <div className="  mt-4 flex border border-gray-800 w-[300px] h-[40px]  pl-2 items-center focus-within:border-sky-500 ">
@@ -125,7 +125,7 @@ function SignUpPage() {
         <button
           type="submit"
           onClick={onSubmit}
-          className="flex justify-center mt-6 border border-gray-800 rounded-full text-white h-10 font-semibold  w-[280px] items-center space-x-3 text-lg bg-sky-500 hover:bg-sky-600"
+          className="flex justify-center mt-6 sm:ml-2 border border-gray-800 rounded-full text-white h-10 font-semibold  w-[280px] items-center space-x-3 text-lg bg-sky-500 hover:bg-sky-600"
         >
           Sign Up
         </button>
@@ -139,7 +139,7 @@ function SignUpPage() {
           <button
             onClick={handleSigninClick}
             type="button"
-            className="flex justify-center mt-4 border border-sky-500 rounded-full text-blue-600 h-10 font-semibold  w-[280px] items-center space-x-3 text-lg hover:bg-sky-400 hover:text-black"
+            className="flex justify-center mt-4 sm:ml-2 border border-sky-500 rounded-full text-blue-600 h-10 font-semibold  w-[280px] items-center space-x-3 text-lg hover:bg-sky-400 hover:text-black"
           >
             Sign in
           </button>

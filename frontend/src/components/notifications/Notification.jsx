@@ -44,7 +44,7 @@ function Notification() {
       }
     },
     onSuccess: () => {
-      toast.success("Log Out successfully");
+      toast.success("Deleted successfully");
       queryClient.invalidateQueries({ queryKey: ["notifications"] });
     },
   });

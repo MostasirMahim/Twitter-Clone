@@ -136,7 +136,7 @@ function Tweets({ post }) {
             {post.text && (
               <div
                 onClick={() => navigate(`/posts/${post._id}`)}
-                className="my-2 w-[80%] max-w-[80%] h-auto overflow-hidden break-words cursor-pointer"
+                className="my-2 xs:w-full md:w-[80%] md:max-w-[80%] h-auto overflow-hidden break-words cursor-pointer"
               >
                 {post.text}
               </div>
@@ -145,7 +145,7 @@ function Tweets({ post }) {
               <img
                 src={post.img}
                 onClick={() => navigate(`/posts/${post._id}`)}
-                className=" rounded-xl border-[1px] border-gray-700 w-[80%] h-[400px] object-contain"
+                className=" rounded-xl border-[1px] border-gray-700 xs:w-full md:w-[80%] h-[400px] object-contain"
               />
             )}
           </div>

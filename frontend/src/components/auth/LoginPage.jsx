@@ -56,17 +56,18 @@ function LoginPage() {
               <span className="text-blue-700">Privacy Policy</span>, including{" "}
               <span className="text-blue-700">Cookie</span> Use.
             </h1>
+
+            <h1 className="  text-lg pl-8 xs:mt-2 sm:mt-6 font-sans sm:pl-6 font-semibold">
+              Already have an account?
+            </h1>
+            <button
+              type="button"
+              className="mt-2 border border-sky-500 rounded-full text-blue-600 h-10 font-semibold sm:w-[280px]  text-lg  hover:bg-sky-400 hover:text-black"
+              onClick={handleLoginClick}
+            >
+              Sign In
+            </button>
           </div>
-          <h1 className="  text-lg xs:mt-2 sm:mt-6 font-sans sm:pl-6 font-semibold">
-            Already have an account?
-          </h1>
-          <button
-            type="button"
-            className=" mt-2 border border-sky-500 rounded-full text-blue-600 h-10 font-semibold xs:w-[250px]  sm:w-[280px]  text-lg  hover:bg-sky-400 hover:text-black"
-            onClick={handleLoginClick}
-          >
-            Sign In
-          </button>
         </div>
       </div>
       <Modal
