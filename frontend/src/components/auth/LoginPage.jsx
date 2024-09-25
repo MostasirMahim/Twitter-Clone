@@ -62,7 +62,7 @@ function LoginPage() {
             </h1>
             <button
               type="button"
-              className="mt-2 border border-sky-500 rounded-full text-blue-600 h-10 font-semibold sm:w-[280px]  text-lg  hover:bg-sky-400 hover:text-black"
+              className="mt-2 border border-sky-500 rounded-full text-blue-600 h-10 font-semibold w-[280px]  text-lg  hover:bg-sky-400 hover:text-black"
               onClick={handleLoginClick}
             >
               Sign In
