@@ -73,7 +73,7 @@ function Notification() {
             <ul className="relative flex justify-around w-full h-[55px] font-bold border-b-[1px] border-gray-700">
               <li
                 onClick={() => setActiveTab("all")}
-                className="w-1/3 hover:bg-slate-800 h-full  flex justify-center items-center "
+                className="w-1/3 hover:bg-slate-800 h-full  flex justify-center items-center cursor-pointer"
               >
                 All
                 {activeTab == "all" && (
@@ -82,7 +82,7 @@ function Notification() {
               </li>
               <li
                 onClick={() => setActiveTab("verified")}
-                className="w-1/3 hover:bg-slate-800 h-full flex justify-center  items-center"
+                className="w-1/3 hover:bg-slate-800 h-full flex justify-center  items-center cursor-pointer"
               >
                 Verified
                 {activeTab == "verified" && (
@@ -91,7 +91,7 @@ function Notification() {
               </li>
               <li
                 onClick={() => setActiveTab("mentions")}
-                className="w-1/3 hover:bg-slate-800 h-full flex justify-center items-center"
+                className="w-1/3 hover:bg-slate-800 h-full flex justify-center items-center cursor-pointer"
               >
                 Mentions
                 {activeTab == "mentions" && (
@@ -123,14 +123,14 @@ function Notification() {
                   }}
                   src={notification.from.profileImg}
                   alt="fromUser"
-                  className="h-8 w-8 mb-2 border rounded-full"
+                  className="h-8 w-8 mb-2 border rounded-full cursor-pointer"
                 />
                 <p>
                   <span
                     onClick={() => {
                       navigate(`/profile/${notification.from.username}`);
                     }}
-                    className="font-bold"
+                    className="font-bold cursor-pointer"
                   >
                     @{`${notification.from.username} `}
                   </span>

@@ -44,11 +44,10 @@ const LoginForm = ({ handleCloseModal }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const handleGuest = () => {
-    setFormData({
+    loginUser({
       email: "guest@gmail.com",
       password: "123456",
     });
-    loginUser(formData);
   };
 
   return (

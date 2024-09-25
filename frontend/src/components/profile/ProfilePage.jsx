@@ -125,7 +125,7 @@ function ProfilePage() {
           onClick={() => {
             navigate("/sugessted/following");
           }}
-          className="flex space-x-1 hover:underline hover:text-white"
+          className="flex space-x-1 hover:underline hover:text-white cursor-pointer"
         >
           <h1 className="text-white">{user.following.length}</h1>
           <h1>Following</h1>
@@ -134,7 +134,7 @@ function ProfilePage() {
           onClick={() => {
             navigate("/sugessted/followers");
           }}
-          className="flex space-x-1 hover:underline hover:text-white"
+          className="flex space-x-1 hover:underline hover:text-white cursor-pointer"
         >
           <h1 className="text-white">{user.followers.length}</h1>
           <h1>Follower</h1>
@@ -143,7 +143,7 @@ function ProfilePage() {
       <div className="mt-4">
         <ul className="flex justify-around items-center w-full h-12  border-b-2 border-gray-800 relative">
           <li
-            className="hover:bg-gray-600 w-[33%] h-full flex justify-center items-center"
+            className="hover:bg-gray-600 w-[33%] h-full flex justify-center items-center cursor-pointer"
             onClick={() => setActiveTab("posts")}
           >
             Posts
@@ -152,7 +152,7 @@ function ProfilePage() {
             )}
           </li>
           <li
-            className="hover:bg-gray-600 w-[33%] h-full flex justify-center items-center"
+            className="hover:bg-gray-600 w-[33%] h-full flex justify-center items-center cursor-pointer"
             onClick={() => setActiveTab("replies")}
           >
             Replies
@@ -161,7 +161,7 @@ function ProfilePage() {
             )}
           </li>
           <li
-            className="hover:bg-gray-600 w-[33%] h-full flex justify-center items-center"
+            className="hover:bg-gray-600 w-[33%] h-full flex justify-center items-center cursor-pointer"
             onClick={() => setActiveTab("likes")}
           >
             Likes
