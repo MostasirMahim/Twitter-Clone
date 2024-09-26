@@ -5,7 +5,8 @@ import toast from "react-hot-toast";
 function FollowButton({ user }) {
   const queryClient = useQueryClient();
   const { data: authUser } = useQuery({ queryKey: ["authUser"] });
-  const { mutate: followButton } = useMutation({
+
+  const { mutate: followButton,isPending } = useMutation({
     mutationFn: async () => {
       try {
         const res = await fetch(`/api/users/follow/${user._id}`);
@@ -16,11 +17,15 @@ function FollowButton({ user }) {
         throw new Error(error);
       }
     },
-    onSuccess: () => {
-      toast.success("Follow successfully");
+    onSuccess: (data) => {
+      toast.success(data.message);
       queryClient.invalidateQueries({ queryKey: ["suggestedUser"] });
       queryClient.invalidateQueries({ queryKey: ["followingUsers"] });
       queryClient.invalidateQueries({ queryKey: ["authUser"] });
+    },
+    onError: (error) => {
+      // Handle error cases
+      toast.error("Something went wrong: " + error.message);
     },
   });
 
@@ -35,7 +40,7 @@ function FollowButton({ user }) {
         type="button"
         className=" w-20 mb-1 h-8 bg-white text-black rounded-full font-semibold ml-4 text-blackp-0.5  hover:bg-sky-500 hover:text-white"
       >
-        {isFollowed ? "Unfollow" : "Follow"}
+        {isPending?"Following" : (isFollowed ? "Unfollow" : "Follow")}
       </button>
     </div>
   );

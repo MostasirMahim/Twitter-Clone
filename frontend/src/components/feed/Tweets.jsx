@@ -97,7 +97,7 @@ function Tweets({ post }) {
   const isMyPost = authUser._id === post.user._id;
   const isLiked = post.likes.includes(authUser._id);
   return (
-    <div className="mx-2 my-2 ">
+    <div className="mx-2 my-2 xs:pr-2 sm:pr-0">
       <div className="flex flex-start w-full">
         <div
           onClick={() => navigate(`/profile/${postOwner.username}`)}

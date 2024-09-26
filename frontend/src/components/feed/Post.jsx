@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import Tweets from "./Tweets";
 import LoadingSpinner from "./LoadingSpinner";
 import NotFound from "./NotFound";
+import { formatPostDate } from "../../utils/formatDate";
 
 function Post() {
   const navigate = useNavigate();
@@ -57,11 +58,11 @@ if (!post) {
           return( <div key={comment._id} className="border-b-[1px] border-gray-700 pl-16">
           <div className="flex flex-start items-center w-full">
           <img src={comment.user.profileImg} alt="profileImg" className="rounded-full h-[40px] w-[40px] m-2 ml-2 cursor-pointer"/>
-          <div className="flex-col items-center pb-2 w-full ml-2">
+          <div onClick={()=> navigate(`/profile/${comment.user.username}`)} className="flex-col items-center pb-2 w-full ml-2">
               <span className=" flex justify-start items-center space-x-2 mt-2 cursor-pointer ">
                       <h1 className="hover:text-sky-400 font-semibold">{comment.user.fullname}</h1>
                       <h1 className="hover:text-sky-400 italic">@{comment.user.username}</h1>
-                      <h1>1h</h1>
+                      <h1>{formatPostDate(comment.createdAt)}</h1>
               </span>
           </div>
       </div>

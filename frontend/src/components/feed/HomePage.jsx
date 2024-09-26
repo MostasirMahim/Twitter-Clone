@@ -65,6 +65,8 @@ function HomePage() {
         <LoadingSection />
         <LoadingSection />
         <LoadingSection />
+        <LoadingSection />
+        <LoadingSection />
       </div>
     );
   }

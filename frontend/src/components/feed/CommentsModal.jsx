@@ -9,8 +9,11 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { formatPostDate } from "../../utils/formatDate";
+import { useNavigate } from "react-router-dom";
 
 function CommentsModal({ handleCloseModal, post }) {
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { data: authUser } = useQuery({ queryKey: ["authUser"] });
 
@@ -60,16 +63,16 @@ function CommentsModal({ handleCloseModal, post }) {
             className="ml-auto hover:cursor-pointer hover:text-sky-500"
             onClick={handleCloseModal}
           />
-          <div className=" flex justify-start items-center space-x-2 mt-2 ">
+          <div onClick={()=> navigate(`/profile/${post.user.username}`)} className=" flex justify-start items-center space-x-2 mt-2 ">
             <img
               src={post.user.profileImg}
               alt="profileImg"
-              className="rounded-full h-[40px] w-[40px] m-2 ml-2"
+              className=" cursor-pointer rounded-full h-[40px] w-[40px] m-2 ml-2"
             />
 
-            <h1>{post.user.fullname}</h1>
-            <h1>{post.user.username}</h1>
-            <h1>1h</h1>
+            <h1 className="cursor-pointer hover:text-sky-400">{post.user.fullname}</h1>
+            <h1 className="cursor-pointer hover:text-sky-400">{post.user.username}</h1>
+            <h1>{formatPostDate(post.createdAt)}</h1>
           </div>
           <div className="text-left pl-16 space-y-2">
             <p>{post.text}</p>
