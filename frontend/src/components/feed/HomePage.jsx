@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Tweets from "./Tweets.jsx";
 import CreatePostMenu from "./CreatePostMenu";
 import LoadingSection from "./LoadingSection.jsx";
+import BottomBar from "./BottomBar.jsx";
 
 const VALID_TABS = ["feed", "following"];
 function HomePage() {
@@ -94,36 +95,41 @@ function HomePage() {
         </div>
       </div>
 
-      {POSTS.length == 0 && (
-        <div className="flex justify-center mt-6">No Post Available</div>
-      )}
-      {activeTab === "feed" && (
-        <div>
-          <CreatePostMenu />
-          {POSTS ? (
-            POSTS.map((post) => (
+      <div className="flex-grow overflow-y-auto scrollbar-none">
+        {POSTS.length == 0 && (
+          <div className="flex justify-center mt-6">No Post Available</div>
+        )}
+        {activeTab === "feed" && (
+          <div>
+            <CreatePostMenu />
+            {POSTS ? (
+              POSTS.map((post) => (
+                <div key={post._id}>
+                  <Tweets key={post._id} post={post} />
+                </div>
+              ))
+            ) : (
+              <LoadingSection />
+            )}
+          </div>
+        )}
+
+        {activeTab === "following" && (
+          <div>
+            {FollowingPost.length == 0 && (
+              <div className="flex justify-center mt-6">No Post Available</div>
+            )}
+            {FollowingPost.map((post) => (
               <div key={post._id}>
                 <Tweets key={post._id} post={post} />
               </div>
-            ))
-          ) : (
-            <LoadingSection />
-          )}
-        </div>
-      )}
-
-      {activeTab === "following" && (
-        <div>
-          {FollowingPost.length == 0 && (
-            <div className="flex justify-center mt-6">No Post Available</div>
-          )}
-          {FollowingPost.map((post) => (
-            <div key={post._id}>
-              <Tweets key={post._id} post={post} />
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+      </div>
+      <div className="sm:hidden sticky bottom-0 z-10 bg-black/40 backdrop-blur-lg border-b-[1px] border-gray-700">
+        <BottomBar />
+      </div>
     </div>
   );
 }

@@ -55,22 +55,23 @@ function Notification() {
 
   const handleCloseModal = () => {
     setIsModalVisible(false);
+    
   };
 
   if (!Notifications) return null;
   return (
     <div>
-      <div className="flex justify-center text-center xs:border-r-[1px] xs:border-gray-700 sm:border-none">
+      <div className="flex justify-center font-spartan text-center xs:border-r-[1px] xs:border-gray-700 sm:border-none">
         <div className="w-full ">
-          <div className="flex justify-between mx-4 my-2 items-center text-xl font-bold">
-            <p>Notifications</p>
+          <div className="flex justify-between mx-4 my-2 items-center text-xl ">
+            <p className="font-amaranth">Notifications</p>
             <IoSettingsOutline
               onClick={handleUpdateClick}
               className="hover: cursor-pointer hover:text-sky-600  hover:rounded-full hover:border-gray-600 h-8 w-8 p-[6px] hover:bg-gray-600/50 hover:backdrop-blur-md"
             />
           </div>
           <div>
-            <ul className="relative flex justify-around w-full h-[55px] font-bold border-b-[1px] border-gray-700">
+            <ul className="font-amaranth relative flex justify-around w-full h-[55px]  border-b-[1px] border-gray-700">
               <li
                 onClick={() => setActiveTab("all")}
                 className="w-1/3 hover:bg-slate-800 h-full  flex justify-center items-center cursor-pointer"
@@ -130,7 +131,7 @@ function Notification() {
                     onClick={() => {
                       navigate(`/profile/${notification.from.username}`);
                     }}
-                    className="font-bold cursor-pointer"
+                    className="text-sm font-amaranth cursor-pointer"
                   >
                     @{`${notification.from.username} `}
                   </span>
@@ -183,12 +184,14 @@ function Notification() {
       >
         <div
           onClick={() => deleteNotification()}
-          className="flex justify-start items-center space-x-3 ml-4 mt-2 hover:scale-110 cursor-pointer"
+          className="flex justify-start items-center mx-auto my-auto gap-1 hover:scale-110 duration-300 hover:text-red-600 cursor-pointer"
         >
-          <MdDelete className="white w-6 h-6" />
-          <p>Delete all Notifications</p>
+          <MdDelete className="white w-4 h-4" />
+          <p className="font-quicksand text-xs font-bold">Delete all Notifications</p>
         </div>
       </Modal>
+
+     
     </div>
   );
 }

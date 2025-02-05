@@ -9,6 +9,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { CommentsModalStyle } from "../../utils/ModalStyles.js";
 import Modal from "react-modal";
+import avatar from "../../assets/avatar.png";
 import CommentsModal from "./CommentsModal";
 import { formatPostDate } from "../../utils/formatDate.js";
 import toast from "react-hot-toast";
@@ -104,7 +105,7 @@ function Tweets({ post }) {
           className="flex-shrink-0"
         >
           <img
-            src={postOwner.profileImg}
+            src={postOwner.profileImg || avatar}
             alt="profileImg"
             className="rounded-full h-[40px] w-[40px] m-2 ml-2 cursor-pointer "
           />
@@ -115,28 +116,28 @@ function Tweets({ post }) {
               className=" xs:flex xs:flex-col sm:flex sm:justify-start space-x-2 mt-2 "
               onClick={() => navigate(`/profile/${postOwner.username}`)}
             >
-              <h1 className="cursor-pointer hover:text-sky-400">
+              <h1 className="cursor-pointer font-quicksand font-bold text-sm hover:text-sky-400">
                 {postOwner.fullname}
               </h1>
              <div className="flex justify-start space-x-4">
-             <h1 className="cursor-pointer xs:text-sky-400 hover:text-sky-400 italic">
+             <h1 className="cursor-pointer font-amaranth text-xs xs:text-sky-400 hover:text-sky-400 italic">
                 @{postOwner.username}
               </h1>
-              <h1>{createdPost}</h1>
+              <h1 className="font-kaushan text-xs">{createdPost}</h1>
              </div>
             </span>
             {isMyPost && (
               <MdDelete
                 onClick={handleDeletePost}
-                className="h-5 w-5 text-gray-700 hover:text-sky-500 cursor-pointer"
+                className="h-5 w-5 text-gray-700 hover:text-sky-500 duration-300 hover:scale-105 cursor-pointer"
               />
             )}
           </div>
-          <div className="text-left my-2 flex flex-col">
+          <div className="text-left my-2 flex flex-col px-2">
             {post.text && (
               <div
                 onClick={() => navigate(`/posts/${post._id}`)}
-                className="my-2 xs:w-full md:w-[80%] md:max-w-[80%] h-auto overflow-hidden break-words cursor-pointer"
+                className="my-2 font-spartan xs:w-full md:w-[80%] md:max-w-[80%] h-auto overflow-hidden break-words cursor-pointer"
               >
                 {post.text}
               </div>

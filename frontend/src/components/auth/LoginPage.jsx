@@ -28,13 +28,13 @@ function LoginPage() {
           <BsTwitterX className="w-[300px] h-[300px]" />
         </div>
         <div className="xs:w-full xs:flex xs:flex-col xs:items-center sm:w-[50%] h-full">
-          <h1 className="xs:text-4xl sm:text-4xl xl:text-7xl mt-16  font-sans font-bold">
+          <h1 className="xs:text-4xl sm:text-4xl xl:text-7xl mt-16  font-quicksand font-bold">
             Happening now
           </h1>
           <h1 className="xs:text-2xl sm:text-2xl xl:text-4xl xs:mt-8 sm:mt-8 xl:mt-12  font-sans font-bold">
             Join Today.
           </h1>
-          <div>
+          <div className="font-quicksand font-bold text-md">
             <div className="flex justify-center xs:mt-4 sm:mt-4 xl:mt-10 border border-gray-800 rounded-full text-black h-10 font-semibold  w-[280px] items-center space-x-3 text-lg bg-white hover:bg-sky-300">
               <img src={googleIcon} alt="Google Icon" className="w-8 h-8" />
               <GoogleSignIn />
@@ -46,7 +46,7 @@ function LoginPage() {
             </div>
             <button
               onClick={handleSignup}
-              className="mt-2 border border-gray-800 rounded-full text-black h-10 font-semibold  w-[280px] text-lg bg-sky-500  hover:bg-sky-600"
+              className="mt-2 border border-gray-800 rounded-full text-white h-10 font-bold  w-[280px] bg-sky-500 duration-300 hover:bg-sky-600"
             >
               Create account
             </button>
@@ -62,7 +62,7 @@ function LoginPage() {
             </h1>
             <button
               type="button"
-              className="mt-2 border border-sky-500 rounded-full text-blue-600 h-10 font-semibold w-[280px]  text-lg  hover:bg-sky-400 hover:text-black"
+              className="mt-2 border border-sky-500 rounded-full text-blue-600 h-10 font-bold w-[280px]  text-lg  hover:bg-sky-400 duration-300 hover:text-white"
               onClick={handleLoginClick}
             >
               Sign In

@@ -9,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import PostsP from "./PostsP";
 import RepliesP from "./RepliesP";
 import LikessP from "./LikessP";
+import { BsSend } from "react-icons/bs";
 import { formatMemberSinceDate } from "../../utils/formatDate.js";
 import FollowButton from "../../hooks/FollowButton.jsx";
 import LoadingSpinner from "../feed/LoadingSpinner.jsx";
@@ -72,7 +73,7 @@ function ProfilePage() {
   }
 
   return (
-    <div className="xs:border-r-[1px] xs:border-gray-700 sm:border-none">
+    <div className="xs:border-r-[1px] xs:border-gray-700 sm:border-none font-quicksand">
       <div className="sticky top-0 h-10 z-10 bg-black/50 backdrop-blur-lg ">
         <div className="flex m-2 space-x-4 items-center pt-1">
           <div>
@@ -107,8 +108,9 @@ function ProfilePage() {
             Edit Profile
           </button>
         ) : (
-          <div className="absolute -bottom-12 right-6">
-            <FollowButton user={user} />{" "}
+          <div className="absolute -bottom-12 right-6 flex justify-center items-center gap-1">
+            <FollowButton user={user} />
+            <BsSend onClick={() => navigate(`/conversation/${user._id}`)} className="w-6 h-6  hover:text-sky-500 hover:translate-x-1 cursor-pointer duration-300" />
           </div>
         )}
       </div>

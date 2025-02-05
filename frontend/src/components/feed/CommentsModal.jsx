@@ -4,13 +4,13 @@ import { MdOutlineGifBox } from "react-icons/md";
 import { BiPoll } from "react-icons/bi";
 import { BsEmojiSmile } from "react-icons/bs";
 import { RiCalendarScheduleFill } from "react-icons/ri";
-import { GiCancel } from "react-icons/gi";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { formatPostDate } from "../../utils/formatDate";
 import { useNavigate } from "react-router-dom";
+import { BadgeX } from "lucide-react";
 
 function CommentsModal({ handleCloseModal, post }) {
   const navigate = useNavigate();
@@ -56,26 +56,29 @@ function CommentsModal({ handleCloseModal, post }) {
     );
   }
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full font-quicksand p-2">
       <div className=" flex flex-col justify-between h-full">
         <div>
-          <GiCancel
-            className="ml-auto hover:cursor-pointer hover:text-sky-500"
-            onClick={handleCloseModal}
-          />
-          <div onClick={()=> navigate(`/profile/${post.user.username}`)} className=" flex justify-start items-center space-x-2 mt-2 ">
+          
+          <section className="w-full flex justify-between items-start px-5">
+          <div onClick={()=> navigate(`/profile/${post.user.username}`)} className=" flex justify-start items-center space-x-2">
             <img
-              src={post.user.profileImg}
+              src={post?.user?.profileImg}
               alt="profileImg"
               className=" cursor-pointer rounded-full h-[40px] w-[40px] m-2 ml-2"
             />
 
-            <h1 className="cursor-pointer hover:text-sky-400">{post.user.fullname}</h1>
-            <h1 className="cursor-pointer hover:text-sky-400">{post.user.username}</h1>
-            <h1>{formatPostDate(post.createdAt)}</h1>
+            <h1 className="cursor-pointer hover:text-sky-400 font-spartan text-lg">{post.user.fullname}</h1>
+            <h1 className="cursor-pointer hover:text-sky-400 font-amaranth font-sm italic">{post.user.username}</h1>
+            <h1 className="font-kaushan text-sm">{formatPostDate(post.createdAt)}</h1>
           </div>
-          <div className="text-left pl-16 space-y-2">
-            <p>{post.text}</p>
+          <p className="hover:scale-110 duration-200 cursor-pointer"
+            onClick={handleCloseModal} >
+          <BadgeX />
+          </p>
+          </section>
+          <div className="text-left px-16 space-y-2 ">
+            <p className="font-spartan">{post.text}</p>
             <p>
               Replying to{" "}
               <span className="text-sky-400">@{post.user.username}</span>
@@ -103,12 +106,12 @@ function CommentsModal({ handleCloseModal, post }) {
                 e.target.style.height = "auto"; // Reset the height
                 e.target.style.height = `${e.target.scrollHeight}px`; // Adjust height based on content
               }}
-              className="bg-black text-white-600  rounded-lg p-2 focus:outline-none   text-lg w-full leading-tight placeholder-gray-500 resize-none overflow-hidden"
+              className="bg-black text-white-600  rounded-lg p-2 focus:outline-none   text-lg w-full leading-tight placeholder-gray-500 resize-none overflow-hidden font-spartan py-2"
             ></textarea>
           </div>
         </div>
 
-        <div className=" flex justify-between  px-4 py-2">
+        <div className=" flex justify-between   py-2">
           <div className="flex justify-start items-center space-x-3">
             <CiImageOn className=" fill-blue-400 w-6 h-6" />
             <MdOutlineGifBox className=" fill-blue-400 w-6 h-6" />
@@ -118,7 +121,7 @@ function CommentsModal({ handleCloseModal, post }) {
           </div>
           <div
             onClick={handlePostComment}
-            className=" w-16 h-8 bg-sky-400 rounded-full flex items-center justify-center font-semibold mr-5 cursor-pointer hover:bg-blue-600 "
+            className=" w-16 h-8 bg-sky-400 rounded-full flex items-center justify-center  mr-5 cursor-pointer hover:bg-blue-600 font-bold"
           >
             Post
           </div>

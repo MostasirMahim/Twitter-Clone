@@ -5,7 +5,7 @@ import { MdAddPhotoAlternate } from "react-icons/md";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-
+import { BadgeX } from 'lucide-react';
 function EditProfileModel({ handleCloseModal, user }) {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -79,11 +79,11 @@ function EditProfileModel({ handleCloseModal, user }) {
   };
   if (!user) return null;
   return (
-    <div className="mx-4 md:relative xs:w-screan md:max-w-full">
+    <div className="mx-4 md:relative xs:w-screan md:max-w-full font-amaranth font-light text-sm">
       <div className="flex justify-between sticky top-0 z-10 bg-black items-center">
         <div className="flex items-center justify-start mt-2 mb-2 space-x-6 ">
-          <RxCross1
-            className=" w-4 h-4 mt-2 hover:cursor-pointer hover:text-sky-500"
+          <BadgeX 
+            className=" w-6 h-6 my-2 hover:cursor-pointer hover:scale-105 hover:text-sky-500 duration-200"
             onClick={handleCloseModal}
           />
           <h1 className="flex justify-center text-lg">Edit profile</h1>
@@ -92,9 +92,9 @@ function EditProfileModel({ handleCloseModal, user }) {
           <button
             form="EditForm"
             type="submit"
-            className="flex justify-center items-center  border border-gray-800 rounded-full text-white h-8 font-semibold  w-[80px]  space-x-3 text-lg bg-sky-500 hover:bg-sky-600"
+            className="flex justify-center items-center  border border-gray-800 rounded-full text-white h-8 font-bold  w-[80px] text-sm font-quicksand space-x-3 duration-300  bg-sky-500 hover:bg-sky-600"
           >
-            {isPending ? "saving.." : "save"}
+            {isPending ? "Saving.." : "Save"}
           </button>
         </div>
       </div>
@@ -156,7 +156,7 @@ function EditProfileModel({ handleCloseModal, user }) {
               maxLength={50}
               value={formData.fullname}
               onChange={handleInputChange}
-              className="w-full h-[40px] bg-transparent  outline-none text-xl  text-white"
+              className="w-full h-[40px] bg-transparent  outline-none   text-white"
             />
           </div>
           <div className=" md:ml-6 mt-6 flex-col border-2 rounded-xl border-gray-800 md:w-[600px] h-[59px]  pl-2  -space-y-2 pb-2 text-gray-500 focus-within:border-sky-500 focus-within:text-sky-400">
@@ -173,7 +173,7 @@ function EditProfileModel({ handleCloseModal, user }) {
               maxLength={50}
               value={formData.username}
               onChange={handleInputChange}
-              className="w-full h-[40px] bg-transparent  outline-none text-xl  text-white"
+              className="w-full h-[40px] bg-transparent  outline-none  text-white"
             />
           </div>
           <div className=" md:ml-6 mt-6 flex-col border-2 rounded-xl border-gray-800 md:w-[600px] h-[59px]  pl-2  -space-y-2 pb-2 text-gray-500 focus-within:border-sky-500 focus-within:text-sky-400">
@@ -190,7 +190,7 @@ function EditProfileModel({ handleCloseModal, user }) {
               maxLength={50}
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full h-[40px] bg-transparent  outline-none text-xl  text-white"
+              className="w-full h-[40px] bg-transparent  outline-none   text-white"
             />
           </div>
 
@@ -208,7 +208,7 @@ function EditProfileModel({ handleCloseModal, user }) {
               maxLength={100}
               value={formData.Bio}
               onChange={handleInputChange}
-              className="w-full h-[40px] bg-transparent  outline-none text-xl  text-white"
+              className="w-full h-[40px] bg-transparent  outline-none   text-white"
             />
           </div>
 
@@ -223,7 +223,7 @@ function EditProfileModel({ handleCloseModal, user }) {
                 maxLength={30}
                 value={formData.oldPassword}
                 onChange={handleInputChange}
-                className="w-full h-[40px] bg-transparent  outline-none text-xl  text-white"
+                className="w-full h-[40px] bg-transparent  outline-none   text-white"
               />
             </div>
 
@@ -236,7 +236,7 @@ function EditProfileModel({ handleCloseModal, user }) {
                 value={formData.newPassword}
                 onChange={handleInputChange}
                 id=""
-                className="w-full h-[40px] bg-transparent  outline-none text-xl  text-white"
+                className="w-full h-[40px] bg-transparent  outline-none  text-white"
               />
             </div>
           </div>
@@ -255,7 +255,7 @@ function EditProfileModel({ handleCloseModal, user }) {
                 maxLength={30}
                 value={formData.Location}
                 onChange={handleInputChange}
-                className="w-full h-[40px] bg-transparent  outline-none text-xl  text-white"
+                className="w-full h-[40px] bg-transparent  outline-none  text-white"
               />
             </div>
 
@@ -273,12 +273,12 @@ function EditProfileModel({ handleCloseModal, user }) {
                 maxLength={50}
                 value={formData.link}
                 onChange={handleInputChange}
-                className="w-full h-[40px] bg-transparent  outline-none text-xl  text-white"
+                className="w-full h-[40px] bg-transparent  outline-none text-white"
               />
             </div>
           </div>
 
-          <div className="ml-6 mt-4 mb-16 text-xl font-semibold text-gray-300 ">
+          <div className="ml-6 mt-4 mb-16  text-gray-300 ">
             <p className="flex items-start text-lg text-gray-600">
               Birth date ~{" "}
               <span
@@ -299,7 +299,7 @@ function EditProfileModel({ handleCloseModal, user }) {
                   type="date"
                   name="DateOfBirth"
                   onChange={handleInputChange}
-                  className="bg-slate-500 text-black font-serif text-lg italic "
+                  className="bg-slate-500 text-black font-serif  italic "
                 ></input>
                 <div onClick={() => setDob(false)}>
                   <RxCross1 className="w-4 h-4" />
@@ -308,7 +308,7 @@ function EditProfileModel({ handleCloseModal, user }) {
                   type="submit"
                   value={formData.DateOfBirth}
                   form="EditForm"
-                  className="ml-4 rounded-full text-white h-8 font-semibold  w-[100px] items-center space-x-3 text-lg bg-sky-500 hover:bg-sky-600 "
+                  className="ml-4 rounded-full text-white h-8  w-[100px] items-center space-x-3  bg-sky-500 hover:bg-sky-600 "
                 >
                   Update
                 </button>

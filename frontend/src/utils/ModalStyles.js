@@ -56,7 +56,7 @@ export const loginModalStyle = {
     padding: "4px",
     border: "1px solid #ccc",
     background: "#000",
-    borderRadius: "4px",
+    borderRadius: "10px",
     outline: "none",
     textAlign: "center",
     display: "flex",

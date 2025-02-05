@@ -12,6 +12,8 @@ import RightPanel from "./components/feed/RightPanel";
 import HomePage from "./components/feed/HomePage";
 import LoadingSpinner from "./components/feed/LoadingSpinner";
 import ScrollToTop from "./components/feed/RefreshScrolling";
+import UserInterface from "./components/messages/UserInterface";
+import ChatInbox from "./components/messages/ChatInbox";
 
 function App() {
   const { data: authUser, isLoading } = useQuery({
@@ -31,13 +33,14 @@ function App() {
     },
     retry: false,
   });
+
   if (isLoading) {
     return <LoadingSpinner />;
   }
   return (
-    <div className="flex">
+    <div className="flex min-h-screen">
       {authUser && <LeftSideBar />}
-      <div className="w-[50%] xs:w-[85%]  sm:w-[85%] md:w-[60%] lg:w-[50%]">
+      <div className="w-full sm:w-[85%] lg:w-[50%]">
         <ScrollToTop />
         <Routes>
           <Route
@@ -65,6 +68,12 @@ function App() {
             path="/notification"
             element={authUser ? <Notification /> : <Navigate to="/login" />}
           />
+          <Route
+            path="/conversation"
+            element={authUser ? <UserInterface /> : <Navigate to="/login" />}
+          >
+            <Route path=":id" element={<ChatInbox />} />
+          </Route>
           <Route
             path="/posts/:id"
             element={authUser ? <Post /> : <Navigate to="/login" />}

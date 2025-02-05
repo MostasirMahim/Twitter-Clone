@@ -1,16 +1,16 @@
 import { HiOutlineMail } from "react-icons/hi";
 import { MdOutlinePassword } from "react-icons/md";
-import { GiCancel } from "react-icons/gi";
+import { BadgeX } from 'lucide-react';
 import toast from "react-hot-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 
-// eslint-disable-next-line react/prop-types
 const LoginForm = ({ handleCloseModal }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errorMessage, setErrorMessge] = useState("");
 
   const queryClient = useQueryClient();
+
   const { mutate: loginUser } = useMutation({
     mutationFn: async ({ email, password }) => {
       const res = await fetch("/api/auth/login", {
@@ -19,6 +19,29 @@ const LoginForm = ({ handleCloseModal }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
+      });
+      const result = await res.json();
+      if (!res.ok) {
+        throw new Error(result.error || "Something went wrong");
+      }
+      console.log(result.error);
+      return result;
+    },
+    onSuccess: () => {
+      toast.success("logged in Succcesfully");
+      queryClient.invalidateQueries({ queryKey: ["authUser"] });
+    },
+    onError: (error) => {
+      setErrorMessge(error.message);
+    },
+  });
+  const { mutate: guestLogin } = useMutation({
+    mutationFn: async () => {
+      const res = await fetch("/api/auth/guestLogin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
       const result = await res.json();
       if (!res.ok) {
@@ -44,15 +67,14 @@ const LoginForm = ({ handleCloseModal }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const handleGuest = () => {
-    loginUser({
-      email: "guest@gmail.com",
-      password: "123456",
-    });
+    guestLogin();
   };
 
+
+
   return (
-    <div className="relative">
-      <GiCancel
+    <div className="relative font-quicksand font-bold">
+      <BadgeX
         className="absolute top-0 right-0 w-6 h-6 mr-2 mt-2 hover:cursor-pointer hover:text-sky-500"
         onClick={handleCloseModal}
       />
@@ -86,13 +108,13 @@ const LoginForm = ({ handleCloseModal }) => {
           onClick={(e) => {
             onSubmitLogin(e);
           }}
-          className="flex justify-center mt-6 border border-gray-800 rounded-full text-white h-10 font-semibold  w-[280px] items-center space-x-3 text-lg bg-sky-500 hover:bg-blue-600"
+          className="flex justify-center mt-6 border border-gray-800 rounded-full text-white h-10 font-bold duration-300 w-[280px] items-center space-x-3 text-lg bg-sky-500 hover:bg-blue-600"
         >
           Log In
         </button>
         <p
           onClick={handleGuest}
-          className="mt-3 font-mono text-sm hover:text-green-600 hover:underline hover:cursor-pointer hover:scale-105"
+          className="mt-3 font-mono text-sm hover:text-green-600 hover:underline hover:cursor-pointer hover:scale-105 duration-300"
         >
           login as a Guest
         </p>

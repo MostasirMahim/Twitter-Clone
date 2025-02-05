@@ -18,24 +18,24 @@ const RightPanel = () => {
 
   if (!whotofollow) return null;
   return (
-    <div className=" block w-[35%] xs:hidden sm:hidden md:block md:w-[25%] lg:w-[35%] border-l-[1px] border-gray-700  ">
+    <div className="w-[35%] xs:hidden sm:hidden lg:block md:w-[25%] lg:w-[35%] border-l-[1px] border-gray-700  my-4">
       <div className="sticky top-0">
         <div
-          className=" flex lg:justify-start md:justify-center md:items-center mt-2 ml-5 w-[70%] h-[45px] border rounded-full border-black  bg-neutral-900 focus-within:border-sky-500
+          className=" flex justify-start items-center px-10 w-[70%] ml-10 h-[45px] border rounded-full border-black  bg-neutral-900 focus-within:border-sky-500
       hover:border-sky-500 focus-within:text-sky-500"
         >
-          <TfiSearch className=" lg:w-[20%] md:10% h-5 md:mr-2" />
+          <TfiSearch className="w-5 h-5" />
           <input
             type="search"
             name="right"
             id="box"
             placeholder="Search"
-            className="lg:w-[80%] md:w-[50%]   h-full bg-transparent p-2 placeholder outline-none text-white"
+            className="w-full bg-transparent p-2 placeholder outline-none text-white"
           />
         </div>
 
         <div className="flex flex-col">
-          <div className=" md:w-[80%] md:text-center lg:text-left lg:pl-4 lg:w-[70%] md:h-[auto] border rounded-3xl border-gray-600 mt-8 ml-5">
+          <div className="hidden md:w-[80%] md:text-center lg:text-left lg:pl-4 lg:w-[70%] md:h-[auto] border rounded-3xl border-gray-600 mt-8 ml-5">
             <h1 className="lg:text-left md:text-center  p-1 text-pretty font-bold">
               Subscribe to Premium
             </h1>
@@ -56,7 +56,7 @@ const RightPanel = () => {
               Subscribe
             </button>
           </div>
-          <div className="border rounded-2xl lg:text-left md:text-center border-gray-800 lg:w-[70%] m-5 lg:p-5 md:p-0 md:w-[80%]">
+          <div className="hidden border rounded-2xl lg:text-left md:text-center border-gray-800 lg:w-[70%] m-5 lg:p-5 md:p-0 md:w-[80%]">
             <h1 className="lg:text-2xl md:text-xl   w-full font-sans font-bold">
               Trends for you
             </h1>
@@ -92,8 +92,8 @@ const RightPanel = () => {
             </div>
           </div>
           {whotofollow.length != 0 && (
-            <div className="md:hidden lg:block border rounded-2xl border-gray-800 w-[70%] m-5 ">
-              <h1 className="text-lg font-sans font-bold text-left ml-5 mb-3">
+            <div className=" lg:block border rounded-2xl border-gray-800 w-[80%] m-5 p-2 ">
+              <h1 className="text-lg font-quicksand font-bold text-left ml-5 mb-3">
                 Who to follow
               </h1>
               <div>
@@ -103,13 +103,13 @@ const RightPanel = () => {
               </div>
             </div>
           )}
-          <div className="flex flex-col mb-4">
-            <ul className="flex space-x-2 text-gray-500 text-sm ml-5">
+          <div className="flex flex-col justify-center px-5 mb-4">
+            <ul className="flex space-x-2 text-gray-500 font-lato text-xs ml-5">
               <li>Terms of service</li>
               <li>Privacy Policy</li>
               <li>Cookie Policy</li>
             </ul>
-            <ul className="flex space-x-2 text-gray-500 text-sm ml-5">
+            <ul className="flex space-x-2 text-gray-500 text-xs font-lato ml-5">
               <li>Accessibility</li>
               <li>Ads info</li>
               <li>More...</li>

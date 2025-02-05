@@ -9,7 +9,7 @@ export const signup = async (req, res) => {
     const defaultCP =
       "https://res.cloudinary.com/dzdszuszh/image/upload/v1727178308/peokm2lmsx5wp6wamkz3.jpg";
     const defaultDP =
-      "https://res.cloudinary.com/dzdszuszh/image/upload/v1727203652/k9jvijfug1w7re3ux9gl.jpg";
+      "https://res.cloudinary.com/dzdszuszh/image/upload/v1727259207/jyigeihbekwqguuppxub.webp";
 
     if (fullname === "")
       return res.status(400).json({ error: "Provide Full Name" });
@@ -56,8 +56,8 @@ export const signup = async (req, res) => {
       });
     }
   } catch (error) {
-    res.status(400).json({ error: "Invalid user data" });
     console.log(error);
+    return res.status(500).json({ error: "Internal server error" });
   }
 };
 
@@ -95,6 +95,28 @@ export const login = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+};
+export const guestLogin = async (req, res) => {
+  try {
+    const email = 'guest@gmail.com';
+    const user = await User.findOne({ email });
+    await genToken(user._id, res);
+
+    res.status(201).json({
+      _id: user._id,
+      fullName: user.fullname,
+      username: user.username,
+      email: user.email,
+      profileImg: user.profileImg,
+      coverImg: user.coverImg,
+      followers: user.followers,
+      following: user.following,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Internal server error" });
   }
 };
 
@@ -104,6 +126,7 @@ export const logout = async (req, res) => {
     res.status(201).json({ message: "Logout successfully" });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({ error: "Internal server error" });
   }
 };
 
@@ -114,5 +137,6 @@ export const getMe = async (req, res) => {
     res.status(201).json(user);
   } catch (error) {
     console.log(error);
+    return res.status(500).json({ error: "Internal server error" });
   }
 };

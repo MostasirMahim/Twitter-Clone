@@ -17,7 +17,7 @@ function GoogleSignIn() {
   };
   return (
     <div>
-      <button onClick={handleGoogleSignIn}>Sign in with Google</button>
+      <button onClick={handleGoogleSignIn} className="font-bold">Sign in with Google</button>
     </div>
   );
 }

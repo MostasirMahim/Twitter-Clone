@@ -8,6 +8,7 @@ import { useRef, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import avatar from "../../assets/avatar.png";
 
 function CreatePostMenu() {
   const [text, setText] = useState("");
@@ -83,7 +84,7 @@ function CreatePostMenu() {
         <div className="flex justify-start ml-2 ">
           <div onClick={() => navigate(`/profile/${data.username}`)}>
             <img
-              src={data.profileImg}
+              src={data.profileImg || avatar}
               alt="profileImg"
               className="cursor-pointer rounded-full h-[40px] w-[40px] m-2 "
             />
@@ -92,7 +93,7 @@ function CreatePostMenu() {
             <textarea
               name="post"
               rows="1"
-              placeholder="What's happening?"
+              placeholder="What's happening?.........."
               id=""
               value={text}
               onChange={(e) => setText(e.target.value)}
@@ -100,7 +101,7 @@ function CreatePostMenu() {
                 e.target.style.height = "auto"; // Reset the height
                 e.target.style.height = `${e.target.scrollHeight}px`; // Adjust height based on content
               }}
-              className="bg-black text-white-600  rounded-lg p-2 focus:outline-none   text-lg w-full leading-tight placeholder-gray-500 resize-none overflow-hidden"
+              className="bg-black placeholder:font-kaushan placeholder:text-sm text-white-600  rounded-lg p-2 focus:outline-none   text-md font-spartan w-full leading-tight placeholder-gray-500 resize-none overflow-hidden"
             ></textarea>
             {img && (
               <div>
@@ -125,7 +126,7 @@ function CreatePostMenu() {
               <input type="file" hidden ref={imgRef} onChange={imgUploader} />
               <div
                 onClick={handleSubmit}
-                className=" w-20 h-8 bg-sky-400 rounded-full flex items-center justify-center font-semibold mr-5 hover:bg-blue-600 cursor-pointer hover:cursor-pointer"
+                className=" w-20 h-8 bg-sky-400 rounded-full flex items-center justify-center  mr-5 hover:bg-blue-600 cursor-pointer text-sm font-quicksand font-bold hover:cursor-pointer"
               >
                 {isPending ? "Posting.." : "Post"}
               </div>

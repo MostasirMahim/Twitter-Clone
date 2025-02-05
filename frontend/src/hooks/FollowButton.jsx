@@ -38,7 +38,7 @@ function FollowButton({ user }) {
       <button
         onClick={handleFollow}
         type="button"
-        className=" w-20 mb-1 h-8 bg-white text-black rounded-full font-semibold ml-4 text-blackp-0.5  hover:bg-sky-500 hover:text-white"
+        className=" w-16 mb-1 h-8 font-quicksand text-xs bg-white text-black rounded-full font-bold ml-4 text-blackp-0.5  hover:bg-sky-500 hover:text-white duration-300"
       >
         {isPending?"Following" : (isFollowed ? "Unfollow" : "Follow")}
       </button>
