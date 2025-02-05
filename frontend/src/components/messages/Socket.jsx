@@ -15,7 +15,7 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     if (authUser) {
-      const socketInstance = io("http://localhost:5000", {
+      const socketInstance = io("https://mahimx.onrender.com", {
         query: {
           userId: authUser._id,
         },
