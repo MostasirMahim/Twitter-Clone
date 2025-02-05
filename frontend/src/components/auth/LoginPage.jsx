@@ -3,9 +3,9 @@ import { useState } from "react";
 import { loginModalStyle } from "../../utils/ModalStyles";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
-import GoogleSignIn from "./GoogleSignIn";
-import LoginForm from "./LoginForm";
+// import GoogleSignIn from "./GoogleSignIn";
 import googleIcon from "../../assets/google.svg";
+import LoginForm from "./LoginForm";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -37,7 +37,8 @@ function LoginPage() {
           <div className="font-quicksand font-bold text-md">
             <div className="flex justify-center xs:mt-4 sm:mt-4 xl:mt-10 border border-gray-800 rounded-full text-black h-10 font-semibold  w-[280px] items-center space-x-3 text-lg bg-white hover:bg-sky-300">
               <img src={googleIcon} alt="Google Icon" className="w-8 h-8" />
-              <GoogleSignIn />
+              {/* <GoogleSignIn /> */}
+              <p className="font-bold">Sign in with Google</p>
             </div>
             <div className=" pl-6 flex justify-start items-baseline space-x-2">
               <div className=" w-24 h-1 border-t-2 border-gray-700"></div>
